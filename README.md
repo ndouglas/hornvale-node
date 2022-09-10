@@ -37,3 +37,33 @@ Elements this would keep/not keep from each genre (traditionally speaking):
   - _not_ keep:
     - narrow focus (anything not directly serving the principal narrative should be discarded)
     - puzzle-based quests (these would tend to lose novelty very quickly)
+
+After fiddling with the Rust version of this for several days, my main focus is on _developer experience_.
+
+I'm looking for an experience like this:
+
+```nodejs
+const neRoom = new EntityBuilder()
+  .setName("Northeast Room")
+  .setDescription("This is a northeastern room.")
+  .isARoom()
+  .build();  
+
+const spawnRoom = new EntityBuilder()
+  .setName("Spawn Room")
+  .setDescription("This is the room where you spawned.")
+  .isARoom()
+  .hasExit(directions.NORTHEAST, neRoom)
+  .build();
+
+neRoom.hasExit(directions.SOUTHWEST, spawnRoom);
+
+const playerEntity = new EntityBuilder()
+  .setName("Player")
+  .setDescription("... it's you, idiot.")
+  .isPlayer()
+  .isInRoom(spawnRoom)
+  .build();
+```
+
+

@@ -3,11 +3,37 @@
  * @author Nathan Douglas <git@darkdell.net>
  */
 
+const assert = require('assert');
+
 // Eventual export object.
 const storage = {};
 
+// The next identifier to use.
+storage.currentEntityId = 0;
+
+// The current generation.
+storage.currentEntityGeneration = 0;
+
+/**
+ * Get current entity ID.
+ */
+storage.getCurrentEntityId = () => {
+  if (storage.currentEntityId === Number.MAX_SAFE_INTEGER) {
+    storage.currentEntityId = 0;
+    storage.currentEntityGeneration += 1;
+  }
+  const result = storage.currentEntityId;
+  storage.currentEntityId += 1;
+  return result;
+};
+
+/**
+ * Get current generation.
+ */
+storage.getCurrentEntityGeneration = () => storage.currentEntityGeneration;
+
 // Storage on a per-component basis.
-storage.component = {};
+let componentStorage = {};
 
 /**
  * A map of entity IDs to the entity objects.
@@ -42,6 +68,7 @@ storage.allEntityIds = new Set();
  * @param {object} entity
  */
 storage.addEntity = (entity) => {
+  assert(typeof entity === 'object');
   storage.allEntities[entity.id] = entity;
   storage.allEntityIds.add(entity.id);
 };
@@ -52,20 +79,24 @@ storage.addEntity = (entity) => {
  * @param {string|number} entityId
  * @return {object}
  */
-storage.getEntity = (entityId) => storage.allEntities[entityId];
+storage.getEntity = (entityId) => {
+  assert(typeof entityId === 'string' || typeof entityId === 'number');
+  return storage.allEntities[entityId];
+};
 
 /**
  * Remove an entity from:
  * - allEntities
  * - allEntityIds
  *
- * This should be called when the entity is destroyed.
+ * This should be called when the entity is killed.
  *
  * This does NOT remove the entity from relevant component storages.
  *
- * @param {string} entityId
+ * @param {string|number} entityId
  */
 storage.removeEntity = (entityId) => {
+  assert(typeof entityId === 'string' || typeof entityId === 'number');
   delete storage.allEntities[entityId];
   storage.allEntityIds.delete(entityId);
 };
@@ -80,6 +111,9 @@ storage.removeEntity = (entityId) => {
 storage.reset = () => {
   storage.allEntities = {};
   storage.allEntityIds = new Set();
+  storage.currentEntityId = 0;
+  storage.currentEntityGeneration = 0;
+  componentStorage = {};
 };
 
 /**
@@ -87,12 +121,39 @@ storage.reset = () => {
  *
  * At this time, this will always be an object.
  *
- * @param {*} componentId
+ * @param {string} componentId
  * @returns {object}
  */
 storage.forComponent = (componentId) => {
-  storage.component[componentId] = storage.component[componentId] || {};
-  return storage.component[componentId];
+  assert(typeof componentId === 'string');
+  componentStorage[componentId] = componentStorage[componentId] || {};
+  return componentStorage[componentId];
+};
+
+/**
+ * Add a component for the specified entity to the component storage.
+ *
+ * @param {object} entity
+ * @param {string} componentId
+ */
+storage.addComponent = (entity, componentId) => {
+  assert(typeof entity === 'object');
+  assert(typeof componentId === 'string');
+  componentStorage[componentId] = componentStorage[componentId] || {};
+  componentStorage[componentId][entity.id] = entity;
+};
+
+/**
+ * Remove a component for the specified entity.
+ *
+ * @param {object} entity
+ * @param {string} componentId
+ */
+storage.removeComponent = (entity, componentId) => {
+  assert(typeof entity === 'object');
+  assert(typeof componentId === 'string');
+  componentStorage[componentId] = componentStorage[componentId] || {};
+  delete componentStorage[componentId][entity.id];
 };
 
 module.exports = storage;

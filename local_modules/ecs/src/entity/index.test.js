@@ -1,18 +1,18 @@
 const path = require('path');
 const storage = require('../storage');
 
-const Index = require('./index');
+const index = require('./index');
 
 describe(path.basename(__filename, '.test.js'), () => {
   it('should correctly create an entity', () => {
     storage.reset();
-    const expected = new Index();
+    const expected = new index.Entity();
     const actual = storage.getEntity(0);
     expect(actual).toEqual(expected);
   });
   it('should correctly create and kill an entity', () => {
     storage.reset();
-    const expected = new Index();
+    const expected = new index.Entity();
     const actual = storage.getEntity(0);
     expect(actual).toEqual(expected);
     expected.kill();
@@ -21,7 +21,7 @@ describe(path.basename(__filename, '.test.js'), () => {
   });
   it('should correctly create an entity, add a component, and kill it', () => {
     storage.reset();
-    const expected = new Index();
+    const expected = new index.Entity();
     const actual = storage.getEntity(0);
     expect(actual).toEqual(expected);
     expected.addComponent({
@@ -50,7 +50,7 @@ describe(path.basename(__filename, '.test.js'), () => {
   });
   it('should not fail attempting to remove a component from an entity that does not possess it', () => {
     storage.reset();
-    const expected = new Index();
+    const expected = new index.Entity();
     const actual = storage.getEntity(0);
     expect(actual).toEqual(expected);
     expected.removeComponent('test_component');

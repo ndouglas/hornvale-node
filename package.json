@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/ndouglas/hornvale#readme",
   "dependencies": {
-    "@hornvale/ecs": "file:local_modules/ecs"
+    "@hornvale/ecs": "file:local_modules/ecs",
+    "@hornvale/io": "file:local_modules/io"
   },
   "devDependencies": {
     "eslint": "^8.23.0",

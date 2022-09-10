@@ -1,21 +1,10 @@
-const { exit } = require('process');
-
-const readline = require('readline').createInterface(
-  process.stdin,
-  process.stdout
-);
-
+const io = require('@hornvale/io');
 const app = require('./src');
 
-function consoleLog(msg) {
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
-  console.log(msg);
-  readline.prompt(true);
-}
+const myConsole = new io.console.Console();
 
 const printOutput = () => {
-  consoleLog('lol');
+  myConsole.print('lol');
   setTimeout(printOutput, 1500);
 };
 printOutput();
@@ -35,14 +24,3 @@ const spawnRoom = new app.ecs.EntityBuilder()
   .build();
 
 player.addComponent(new app.ecs.components.IsInRoom(spawnRoom));
-
-// console.log(player);
-// console.log(app.ecs.storages);
-
-readline.on('line', (line) => {
-  if (line[0] === '/' && line.length > 1) {
-    exit();
-  } else {
-    readline.prompt(true);
-  }
-});

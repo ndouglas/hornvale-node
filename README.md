@@ -2,8 +2,6 @@
 
 Hornvale is an experimental prose-based roguelike written in NodeJS.
 
-Yeah, [I was working on this in Rust](https://github.com/ndouglas/hornvale-rust), but I decided that whatever performance benefits Rust might bring were completely outweighed by it taking an hour or two to figure out how to do any given trivial thing in a guaranteed memory-safe fashion.
-
 I have two relevant favorite games:
 
 - _After the Plague II_, a Hungarian MUD I played about twenty years ago

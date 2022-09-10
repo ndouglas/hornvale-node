@@ -67,4 +67,4 @@ Entity.prototype.kill = function kill() {
   return this;
 };
 
-module.exports = Entity;
+exports.Entity = Entity;

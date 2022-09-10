@@ -1,1 +1,1 @@
-module.exports = new Array();
+module.exports = [];

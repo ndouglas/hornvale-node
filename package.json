@@ -5,7 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "npm test"
+    "postinstall": "husky install",
+    "format": "prettier --write .",
+    "lint-staged": "lint-staged --config lint-staged.config.js",
+    "test": "jest --passWithNoTests",
+    "test:ci": "jest --ci --coverage --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch"
   },
   "repository": {
     "type": "git",
@@ -16,5 +22,22 @@
   "bugs": {
     "url": "https://github.com/ndouglas/hornvale/issues"
   },
-  "homepage": "https://github.com/ndouglas/hornvale#readme"
+  "homepage": "https://github.com/ndouglas/hornvale#readme",
+  "dependencies": {
+    "@hornvale/ecs": "file:local_modules/ecs"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "jest": "^29.0.2",
+    "jest-watch-typeahead": "^2.1.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  }
 }

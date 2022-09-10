@@ -1,0 +1,17 @@
+{
+  "name": "@hornvale/ecs",
+  "version": "1.0.0",
+  "description": "Entity Component System for Hornvale",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndouglas/hornvale.git"
+  },
+  "author": "Nathan Douglas <git@darkdell.net>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/ndouglas/hornvale/issues"
+  },
+  "homepage": "https://github.com/ndouglas/hornvale#readme"
+}

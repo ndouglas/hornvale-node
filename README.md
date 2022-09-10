@@ -1,9 +1,11 @@
 # Hornvale
+
 Hornvale is an experimental prose-based roguelike written in NodeJS.
 
 Yeah, [I was working on this in Rust](https://github.com/ndouglas/hornvale-rust), but I decided that whatever performance benefits Rust might bring were completely outweighed by it taking an hour or two to figure out how to do any given trivial thing in a guaranteed memory-safe fashion.
 
 I have two relevant favorite games:
+
 - _After the Plague II_, a Hungarian MUD I played about twenty years ago
 - _Zork_ (I-III), the legendary text adventures from Infocom
 
@@ -12,6 +14,7 @@ I've wanted to capture/recreate/whatever the experiences I had with these games 
 So I thought I might experiment with a prose-based roguelike that incorporates elements from text adventures and MUDs.
 
 Elements this would keep/not keep from each genre (traditionally speaking):
+
 - roguelikes:
   - keep:
     - procedural generation
@@ -47,7 +50,7 @@ const neRoom = new EntityBuilder()
   .setName("Northeast Room")
   .setDescription("This is a northeastern room.")
   .isARoom()
-  .build();  
+  .build();
 
 const spawnRoom = new EntityBuilder()
   .setName("Spawn Room")
@@ -65,5 +68,3 @@ const playerEntity = new EntityBuilder()
   .isInRoom(spawnRoom)
   .build();
 ```
-
-

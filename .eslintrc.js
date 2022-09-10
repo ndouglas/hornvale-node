@@ -13,5 +13,6 @@ module.exports = {
   },
   rules: {
     'no-plusplus': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

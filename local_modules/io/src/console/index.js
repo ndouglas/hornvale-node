@@ -18,7 +18,9 @@ const consoleLog = console.log;
 function Console() {
   console.clear();
   this.interface = readline.createInterface(process.stdin, process.stdout);
-  this.interface.on('line', this.readLine);
+  this.interface.on('line', (line) => {
+    this.read(line);
+  });
 }
 
 /**
@@ -41,9 +43,9 @@ Console.prototype.print = function print(...args) {
  *
  * @param {string} line
  */
-Console.prototype.readLine = function read(line) {
+Console.prototype.read = function read(line) {
   assert(typeof line === 'string');
-  this.handleLine(line);
+  this.handle(line);
   this.interface.prompt(true);
 };
 
@@ -54,7 +56,7 @@ Console.prototype.readLine = function read(line) {
  *
  * @param {string} line
  */
-Console.prototype.handleLine = function handle(line) {
+Console.prototype.handle = function handle(line) {
   assert(typeof line === 'string');
   this.print(line);
 };

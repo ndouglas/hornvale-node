@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ndouglas/hornvale#readme",
   "dependencies": {
     "@hornvale/ecs": "file:local_modules/ecs",
+    "@hornvale/entity_builder": "file:local_modules/entity_builder",
     "@hornvale/io": "file:local_modules/io"
   },
   "devDependencies": {

@@ -1,0 +1,14 @@
+exports.Direction = {
+  NORTHWEST: 'NORTHWEST',
+  NORTH: 'NORTH',
+  NORTHEAST: 'NORTHEAST',
+  EAST: 'EAST',
+  WEST: 'WEST',
+  SOUTHWEST: 'SOUTHWEST',
+  SOUTH: 'SOUTH',
+  SOUTHEAST: 'SOUTHEAST',
+  UP: 'UP',
+  DOWN: 'DOWN',
+  IN: 'IN',
+  OUT: 'OUT',
+};

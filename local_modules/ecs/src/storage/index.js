@@ -16,6 +16,8 @@ storage.currentEntityGeneration = 0;
 
 /**
  * Get current entity ID.
+ *
+ * @return {number}
  */
 storage.getCurrentEntityId = () => {
   if (storage.currentEntityId === Number.MAX_SAFE_INTEGER) {
@@ -29,6 +31,8 @@ storage.getCurrentEntityId = () => {
 
 /**
  * Get current generation.
+ *
+ * @return {number}
  */
 storage.getCurrentEntityGeneration = () => storage.currentEntityGeneration;
 

@@ -1,7 +1,7 @@
 {
-  "name": "@hornvale/io",
+  "name": "@hornvale/model",
   "version": "1.0.0",
-  "description": "I/O functionality for Hornvale",
+  "description": "Basic world model for Hornvale",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -24,9 +24,12 @@
   },
   "homepage": "https://github.com/ndouglas/hornvale#readme",
   "dependencies": {
+    "@hornvale/core_components": "file:local_modules/core_components",
     "@hornvale/ecs": "file:local_modules/ecs",
     "@hornvale/entity_builder": "file:local_modules/entity_builder",
-    "@hornvale/io": "file:local_modules/io"
+    "@hornvale/io": "file:local_modules/io",
+    "@hornvale/model": "file:local_modules/model",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "eslint": "^8.23.0",

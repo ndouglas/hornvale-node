@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "name": "north",
+    "short": "n",
+    "inverse": 4
+  },
+  {
+    "id": 1,
+    "name": "northeast",
+    "short": "ne",
+    "inverse": 5
+  },
+  {
+    "id": 2,
+    "name": "east",
+    "short": "e",
+    "inverse": 6
+  },
+  {
+    "id": 3,
+    "name": "southeast",
+    "short": "se",
+    "inverse": 7
+  },
+  {
+    "id": 4,
+    "name": "south",
+    "short": "s",
+    "inverse": 0
+  },
+  {
+    "id": 5,
+    "name": "southwest",
+    "short": "sw",
+    "inverse": 1
+  },
+  {
+    "id": 6,
+    "name": "west",
+    "short": "w",
+    "inverse": 2
+  },
+  {
+    "id": 7,
+    "name": "northwest",
+    "short": "nw",
+    "inverse": 3
+  },
+  {
+    "id": 8,
+    "name": "up",
+    "short": "up",
+    "inverse": 9
+  },
+  {
+    "id": 9,
+    "name": "down",
+    "short": "down",
+    "inverse": 8
+  },
+  {
+    "id": 10,
+    "name": "in",
+    "short": "in",
+    "inverse": 11
+  },
+  {
+    "id": 11,
+    "name": "out",
+    "short": "out",
+    "inverse": 10
+  }
+]

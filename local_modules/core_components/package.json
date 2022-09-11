@@ -1,7 +1,7 @@
 {
-  "name": "@hornvale/io",
+  "name": "@hornvale/core_components",
   "version": "1.0.0",
-  "description": "I/O functionality for Hornvale",
+  "description": "Core components for Hornvale",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,5 @@
   "bugs": {
     "url": "https://github.com/ndouglas/hornvale/issues"
   },
-  "homepage": "https://github.com/ndouglas/hornvale#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/ndouglas/hornvale#readme"
 }
